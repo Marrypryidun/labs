@@ -1,0 +1,102 @@
+<HTML>
+	<HEAD>
+		<title>lab 6</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <meta charset="utf-8">
+
+		<script language="JavaScript">
+			function sendAnket(obj) {
+            var price = obj.querySelector('input[name=course]:checked').value,
+                length = obj.querySelector('input[name=length]:checked').value,
+                report = obj.querySelector('input[name=report]:checked').value,
+                languages = 0, answer = "";
+
+            if(price == 1000) answer += "Ви замовили курс для новачків ";
+            else if(price == 1500) answer += "Ви замовили курс для середнього рівня ";
+            else if(price == 2000) answer += "Ви замовили курс для професіоналів ";
+
+            price *= length;
+
+            if((obj.elements[7]).checked) {
+                languages += +obj.elements[7].value;
+                answer += "англійської мови";
+            }
+            if((obj.elements[8]).checked) {
+                languages += +obj.elements[8].value;
+                if((obj.elements[7]).checked) answer += ", ";
+                answer += "німецької мови";
+            }
+            if((obj.elements[9]).checked) {
+                languages += +obj.elements[9].value;
+                if((obj.elements[8]).checked || (obj.elements[7]).checked) answer += ", ";
+                answer += "французької мови";
+            }
+            if((obj.elements[10]).checked) {
+                languages += +obj.elements[10].value;
+                if((obj.elements[9]).checked || (obj.elements[8]).checked || (obj.elements[7]).checked) answer += ", ";
+                answer += "польської мови";
+            }
+
+            price *= languages;
+
+            if(length == 1) answer += " на 1 місяць.";
+            else if(length == 2) answer += " на 2 місяці.";
+            else if(length == 6) answer += " на півроку.";
+            else if(length == 12) answer += " на рік.";
+
+            if(report == "oral") answer += " Вся звітність відбуватиметься в усному режимі."
+            else answer += " Вся звітність відбуватиметься в письмовому режимі.";
+
+            answer += " Ціна курсу для вас - "+price+"грн.";
+
+            alert(answer);
+        }
+		</script>
+	</HEAD>
+	<BODY>
+		<div class="body_lab" align="center">
+        <h1>Лабораторна робота №6</h1>
+
+    <hr>
+
+<!--Завдання 1-->
+		<p> <h2>Завдання 1 </h2></p>
+		<p>  Написати сценарій обробки анкети слухача курсів. Користувач може
+			обрати із списку курсів конкретний курс, його тривалість, мову роботи з
+			викладачем, форму звітності. Залежно від цих параметрів визначається вартість
+			окремого курсу і вартість всього навчання.</p>
+			<form name="anket" class="anket">
+        <h3>Анкета слухача курсів</h3>
+        <p>Курс:<br>
+            <label><input type="radio" name="course" value="1000">Для новачків</label><br>
+            <label><input type="radio" name="course" value="1500">Для середнього рівня</label><br>
+            <label><input type="radio" name="course" value="2000">Для професіоналів</label>
+        </p>
+
+        <p>Тривалість:<br>
+            <label><input type="radio" name="length" value="1">Місяць</label><br>
+            <label><input type="radio" name="length" value="2">2 місяці</label><br>
+            <label><input type="radio" name="length" value="6">Півроку</label><br>
+            <label><input type="radio" name="length" value="12">Рік</label>
+        </p>
+
+        <p>Мова роботи з викладачем:<br>
+            <label><input type="checkbox" name="english" value="2">Англійська</label><br>
+            <label><input type="checkbox" name="germany" value="1">Німецька</label><br>
+            <label><input type="checkbox" name="france" value="2">Французька</label><br>
+            <label><input type="checkbox" name="polish" value="1">Польська</label>
+        </p>
+
+        <p>Форма звітності:<br>
+            <label><input type="radio" name="report" value="oral">Усна</label><br>
+            <label><input type="radio" name="report" value="write">Письмова</label>
+        </p>
+
+
+        <p><input type="button" value="Відправити анкету" onclick="sendAnket(anket)"></p>
+    </form>
+
+ 		<hr>
+ 	</div>
+		</BODY>
+	</HTML>

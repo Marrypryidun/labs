@@ -1,0 +1,32 @@
+<HTML>
+    <HEAD>
+        <meta charset="utf-8">
+         <TITLE>Переставляннязображень</TITLE>
+         <script>
+           function chan(obj){
+              var r1=Number(obj.a1.value)
+              var r2=Number(obj.a2.value)
+              if ((r1<1)||(r1>3)||(r2<1)||(r2>3))
+                alert ("Неправильнозаданіномеризображень!")
+             else{
+                  var z=document.images[r1-1].src
+                  document.images[r1-1].src=document.images[r2-1].src;
+                  document.images[r2-1].src=z
+                }
+              }
+            </script>
+                 </HEAD>
+                 <BODY>
+                   <CENTER>
+                      <p>Галереямалюнків</p>
+                        <IMG src="img_4.p1.jpg" width="90" name="pic1" alt="pic1">
+                        <IMG src="img_4.p2.jpg" width="90" name="pic2" alt="pic2">
+                        <IMG src="img_4.p3.jpg" width="90" name="pic3" alt="pic3"> <br>
+                          <FORM name=form1> Зображення з номерами<br>
+                             <input type="text" name="a1" size=1>
+                              <input type="text" name="a2" size=1><P>
+                              <input type="button" value=" Переставити" onClick="chan(form1)">
+                             </FORM>
+                           </CENTER>
+                         </BODY>
+                          </HTML>
