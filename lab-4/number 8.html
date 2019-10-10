@@ -1,0 +1,123 @@
+<HTML>
+	<HEAD>
+		<title>lab 8</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <meta charset="utf-8">
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../img/ico.ico">
+
+		<script language="JavaScript">
+			function perevern(obj) {
+				var rezult=0;
+				var digit=Number(obj.num1.value);
+				while(digit>1){
+					rezult = Math.floor(digit % 10) + rezult * 10;
+					digit /= 10;
+				}
+
+				obj.res.value=rezult;
+
+			}
+
+			function bilet(obj){
+				var digits = {},
+				i, tmp;
+				for (i = 0; i <= 999; i += 1) {
+					tmp = i % 10 + ((i % 100) - (i % 10)) / 10 + (i / 100) ^ 0;
+					if (digits[tmp] === undefined) {
+						digits[tmp] = 1;
+					} else {
+						digits[tmp] += 1;
+					}
+				}
+				tmp = 0;
+				for (i in digits) {
+					tmp += digits[i] * digits[i];
+				}
+				obj.num2.value=tmp;
+			}
+
+			function sieve(obj){
+				var n = Number(obj.num3.value);
+				var string="1";
+				for (i=2;i<n-1;i++)
+				{
+					if(n%i==0) string=string +", "+i;
+				}
+				obj.res1.value=string;
+			}
+		</script>
+	</HEAD>
+	<BODY>
+		<div class="body_lab" align="center">
+        <h1>Лабораторна робота №8</h1>
+
+    <hr>
+
+<!--Завдання 1-->
+		<h2>Завдання 1 </h2>
+		<p>   Написати програму, яка "перевертає" задане натуральне число.   </p>
+    <script>
+        function turnNumber(){
+            form1.number.value = form1.number.value.split('').reverse().join('');
+        }
+    </script>
+
+    <form name="form1">
+        <input type="text" name="number" placeholder="Введіть натуральне число">
+        <input type="button" value="Перевернути" onclick="turnNumber()">
+    </form>
+
+<!--Завдання 2-->
+		 <h2>Завдання 2 </h2>
+		<p>   Написати сценарій визначення кількості "щасливих" шестизначних
+				автобусних квитків (в номерах яких сума перших трьох цифр дорівнює сумі
+				трьох останніх).    </p>
+        <p class="result1">Кількість квитків: </p>
+
+        <script>
+            function sum(num){
+                var str = num.toString(),
+                    arr = str.split(''),
+                    s = 0;
+                    arr.forEach(function(value){ s+=parseInt(value); });
+                    return s;
+            }
+
+            var result = 0;
+
+            for(var i=0;i<1000;i++)
+                for(var j=0;j<1000;j++)
+                    if(sum(i) == sum(j)) result++;
+
+            document.querySelector('.result1').textContent = "Кількість квитків: "+result;
+        </script>
+        <h2>Завдання 3: Написати програму, що визначає всі дільники заданого натурального числа.</h2>
+
+        <script>
+            function showDivs() {
+                var number = +form4.number.value,
+                    res = document.querySelector('.result2');
+
+                res.textContent = "Дільники:";
+                res.innerHTML += "<br>1";
+                for (var i=2;i<=number/2;i++) {
+                    if(!(number%i)) res.innerHTML += "<br>"+i;
+                }
+                if(number-1) res.innerHTML += "<br>"+number;
+            }
+        </script>
+
+        <form name="form4">
+            <input type="text" name="number" placeholder="Введіть натуральне число">
+            <input type="button" value="Вивести всі дільники" onclick="showDivs()">
+        </form>
+
+        <p class="result2">Дільники:</p>
+
+<hr>
+</div>
+
+    </BODY>
+
+		</HTML>

@@ -1,0 +1,72 @@
+<HTML>
+	<HEAD>
+		<title>lab 12</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <meta charset="utf-8">
+		<script language="JavaScript">
+
+			function checkmyname(name) {
+				var res = /^[a-zA-Zа-яА-Я \s ']+$/.test(name);
+
+				if(res) alert("Ім'я '"+name+"' вірне!");
+				else alert("Ім'я '"+name+"' невірне!");
+			}
+
+			function checkmyemail(email) {
+				var res = /^[a-z0-9_-]+@[a-z0-9-]+\.[a-z]{2,6}$/.test(email);
+
+				if(res) alert("Email '"+email+"' вірний!");
+				else alert("Email '"+email+"' невірний!");
+			}
+
+			function checkmyphone(phone) {
+				var res = /^(\+38)?0[0-9]{9}$/.test(phone);
+
+				if(res) alert("Телефон '"+phone+"' вірний!");
+				else alert("Телефон '"+phone+"' невірний!");
+			}
+		</script>
+	</HEAD>
+	<BODY>
+
+		<div class="body_lab" align="center">
+        <h1>Лабораторна робота №12</h1>
+
+    <hr>
+
+<!--Завдання 1-->
+		<p> <h2>Завдання 1 </h2></p>
+		<p>   Уточнити контроль коректності імені користувача на ваш розсуд.    </p>
+		<form name="checkname">
+		Введіть ім'я: <input type="text" name="name">
+			<input type="button" name="check" value="Перевірка" onClick="checkmyname(this.form.name.value)">
+		</form>
+
+<!--Завдання 2-->
+		<p> <h2>Завдання 2 </h2></p>
+		<p>  Уточнити контроль коректності адреси електронної пошти на ваш розсуд.   </p>
+		<form name="checkemail">
+			Введіть email: <input type="text" name="email" >
+			<input type="button" name="check" value="Перевірка" onClick="checkmyemail(this.form.email.value)">
+		</form>
+
+<!--Завдання 3-->
+		<p> <h2>Завдання 3 </h2></p>
+		<p>   Уточнити контроль коректності телефонного номеру на ваш розсуд  </p>
+		<form name="checkphone">
+			Введіть телефон: <input type="text" name="phone" >
+			<input type="button" name="check" value="Перевірка" onClick="checkmyphone(this.form.phone.value)">
+		</form>
+
+<hr>
+    </div>
+
+    <div class="wrapper_lab">
+        <div class="left_block">
+            <a href="lab11.html"><img src="../IMG/left.png"></a>
+        </div>
+
+    </div>
+
+	</BODY>
+</HTML>

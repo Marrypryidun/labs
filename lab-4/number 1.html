@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>lab 1</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <meta charset="utf-8">
+
+    
+</head>
+
+<body>
+  <div class="body_lab" align="center">
+      <h1>Лабораторна робота №1</h1>
+
+  <hr>
+
+<!--Завдання 1-->
+  <p><h2>Завдання 1</h2></p>
+  <p>Скласти сценарій обчислення площі круга за відомим радіусом</p>
+  <input class="data" type="text" placeholder="Значення радіуса">
+  <input class="but1" type="button" value="Обчислити">
+  <p class="result1">Площа круга:</p>
+  <script>
+      var data = document.querySelector('.data'),
+          but1 = document.querySelector('.but1'),
+          res1 = document.querySelector('.result1');
+
+      but1.onclick = function() {
+          res1.textContent = "Площа круга: " + (Math.PI * +data.value * +data.value);
+      }
+  </script>
+
+<!--Завдання 2-->
+  <p><h2>Завдання 2</h2></p>
+  <p>Скласти сценарій обчислення гіпотенузи за відомими катетами</p>
+  <input class="first" type="text" placeholder="Довжина першого катета">
+  <input class="second" type="text" placeholder="Довжина другого катета">
+  <input class="but2" type="button" value="Обчислити">
+  <p class="result2">Довжина гіпотенузи:</p>
+  <script>
+      var first = document.querySelector('.first'),
+          second = document.querySelector('.second'),
+          but2 = document.querySelector('.but2'),
+          res2 = document.querySelector('.result2');
+
+      but2.onclick = function() {
+          res2.textContent = "Довжина гіпотенузи: " + Math.sqrt(+first.value * +first.value + +second.value * +second.value);
+      }
+  </script>
+
+      <hr>
+
+</body>
+</html>

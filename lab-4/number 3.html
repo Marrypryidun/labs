@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<title>lab 3</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <meta charset="utf-8">
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../img/ico.ico">
+</HEAD>
+
+<BODY>
+
+
+
+<script language="JavaScript">
+function countOfMax(arr) {
+    for(var i=0;i<5;i++)
+        if(!arr[i]) return;
+    var res = document.querySelector('.result2'),
+        max = Math.max(arr[0],arr[1],arr[2],arr[3],arr[4]),
+        maxcount = 0;
+    console.log(max);
+    for(var i=0;i<5;i++)
+        if(arr[i] == max) maxcount++;
+    res.textContent = "Кількість максимальних чисел: " + maxcount;
+}
+
+function triangle(obj){
+	var a = Number(obj.num1.value);
+ 	var b = Number(obj.num2.value);
+ 	var c = Number(obj.num3.value);
+ 	var string="";
+ 	if(((a+b) > c) && ((a+c) > b) && ((c+b) > a))
+ 		string="Такий трикутник існує";
+ 	else
+ 		string="Такий трикутник не існує";
+ 	obj.res3.value=string;
+
+
+}
+
+function coordinates(obj){
+	var x = Number(obj.num1.value);
+	var y= Number(obj.num2.value);
+	if(x==0 && y==0){
+		obj.res4.value="Точка знаходиться в початку координат";
+		return;
+
+	}
+	if(x>=0 && y>=0){
+		obj.res4.value="Точка знаходиться в першій чверті координат";
+		return;
+	}
+	if(x>=0 && y<=0){
+		obj.res4.value="Точка знаходиться в четвертій чверті координат";
+		return;
+	}
+	if(x<=0 && y>=0){
+		obj.res4.value="Точка знаходиться в другій чверті координат";
+		return;
+	}
+	if(x<=0 && y<=0){
+		obj.res4.value="Точка знаходиться в третій чверті координат";
+		return;
+	}
+}
+</script>
+
+<div class="body_lab" align="center">
+        <h1>Лабораторна робота №3</h1>
+
+    <hr>
+<!--Завдання 1-->
+<p> <h2>Завдання 1 </h2></p>
+<p> Написати сценарій визначення кількості максимальних чисел для
+введеної послідовності із п’яти чисел.  </p>
+<form name="form1">
+        <p>5 чисел:<br>
+            <input type="text" name="n1" placeholder="Перше число"><br>
+            <input type="text" name="n2" placeholder="Друге число"><br>
+            <input type="text" name="n3" placeholder="Третє число"><br>
+            <input type="text" name="n4" placeholder="Четверте число"><br>
+            <input type="text" name="n5" placeholder="П'яте число"><br>
+        </p>
+        <p><input type="button" value="Визначити" onClick="countOfMax([document.form1.n1.value,document.form1.n2.value,document.form1.n3.value,document.form1.n4.value,document.form1.n5.value])"></p>
+
+        <p class="result2">Кількість максимальних чисел: </p>
+    </form>
+
+
+<!--Завдання 2-->
+<p> <h2>Завдання 2 </h2></p>
+<p> Написати сценарій визначення можливості побудови трикутника із
+заданими довжинами сторін.   </p>
+<FORM name="form2">
+Сторона А: <input type="text" size=8 name="num1"><br>
+Сторона Б: <input type="text" size=8 name="num2"><br>
+Сторона В: <input type="text" size=8 name="num3"><br>
+Трикутник існує?<input type="text" size=20 name="res3"><br>
+
+<input type="button" value="Визначити" onClick="triangle(form2)">
+<input type="reset">
+</FORM>
+
+<!--Завдання 3-->
+<p> <h2>Завдання 3 </h2></p>
+<p> Встановити, до якої із чвертей системи координат належить точка,
+задана координатами на площині.  </p>
+<FORM name="form3">
+Координата Х: <input type="text" size=8 name="num1" value=0><br>
+Координата Y: <input type="text" size=8 name="num2" value=0><br>
+<input type="button" value="Визначити" onClick="coordinates(form3)">
+<input type="reset"><br>
+<output type="text" size=18 name="res4"><br><br>
+
+</FORM>
+
+<hr>
+    </div>
+
+</BODY>
+</HTML>
