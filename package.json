@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "eslint .",
+    "test": ".eslint .",
     "lint": "eslint --ignore-path .gitignore src"
   },
   "author": "",
