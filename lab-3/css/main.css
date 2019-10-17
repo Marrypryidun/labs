@@ -96,6 +96,7 @@ color:  #de0d0d;
   padding-right:  80px;
 }
 @media screen and (max-width: 900px) {
- .x {
-flex-wrap:wrap;
- }
+  .x {
+    flex-wrap: wrap;
+  }
+}
